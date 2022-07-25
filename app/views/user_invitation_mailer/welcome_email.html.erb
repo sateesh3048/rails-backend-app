@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi  <%= @invitation.email %>, </h1>
+    <h1> Welcome to AwesomeSite.com.</h1>
+    <h2>Your friend with email id 
+      <h5><%= @user.email%></h5>
+      is inviting you to join this site.</h2>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Our site is waiting for your presence. So please register  soon! </p>
+  </body>
+</html>
