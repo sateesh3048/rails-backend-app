@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_19_051924) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_25_152425) do
+  create_table "invitations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "email"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
+
   create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.boolean "completed"
@@ -34,5 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_19_051924) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "invitations", "users"
   add_foreign_key "tasks", "users"
 end
