@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :tasks
+  resources :invitations, only: %i[create show]
   devise_for :users,
              controllers: {
                sessions: 'users/sessions',
